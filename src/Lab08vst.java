@@ -41,10 +41,11 @@ class Palindrome {
 	 */
 	public static boolean isPal(String s) {
 		String s2 = "";
-		for(int k = 0; k <= s.length() -1 ; k--){
+		for(int k = s.length()-1; k >= 0; k--){
 			s2 += s.charAt(k);
-		 	System.out.print(s2);
+		 	
 		}
+
 		if (s.equals(s2))
 			
 			return true; // This statement is provided to allow initial
