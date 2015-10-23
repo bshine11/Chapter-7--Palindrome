@@ -42,8 +42,8 @@ class Palindrome {
 	public static boolean isPal(String s) {
 		String s2 = "";
 		for(int k = 0; k <= s.length() -1 ; k--){
-			System.out.println(s2.charAt(k));
-		 	
+			s2 += s.charAt(k);
+		 	System.out.print(s2);
 		}
 		if (s.equals(s2))
 			
