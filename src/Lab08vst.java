@@ -39,29 +39,57 @@ class Palindrome {
 	 * is returned if s is a Palindrome, false otherwise. Note: This method is
 	 * required for both the 80 point and the 100 point.
 	 */
+	
+	//checks to be a palindrome or not
 	public static boolean isPal(String s) {
+		String lowerC = s.toLowerCase(); //makes everything lowercase
 		String s2 = "";
-		for(int k = s.length()-1; k >= 0; k--){
-			s2 += s.charAt(k);
-		 	
+		for (int k = s.length() - 1; k >= 0; k--) {
+			s2 += lowerC.charAt(k); //string backwards
+
 		}
 
-		if (s.equals(s2))
+		if (lowerC.equals(s2))
 			
 			return true; // This statement is provided to allow initial
 							// compiling.
 		else
 			return false;
 	}
-
+	
 	/*
 	 * Precondition: s is a String of one character. Postcondition: The value of
 	 * true is returned if s is a letter and false otherwise. Note: >>>>> This
 	 * method is only completed for the 100 point version <<<<<
 	 */
-	private static boolean isLetter(String letter) {
-		return true; // This statement is provided to allow initial compiling.
+	private static boolean isLetter(char letter) {
+		//see if character is letter
+		if(letter >= 'a' && letter <= 'z')
+		   	return true;
+		else
+		 return false;
+			
 	}
+	/*
+	 * Precondition:  s is an arbitrary String.
+	 * Postcondition: All non-letter characters are removed from s, and this "purged" String is returned.
+    * Note:          >>>>> This method is only completed for the 100 point version  <<<<<
+	 */
+	private static String purge(String s)
+	//finds the non letters of the String
+	{
+		String lowerC = s.toLowerCase();
+		   String purgedL = "";
+		   //finds characters in the index from isLetter and adds the letter to the String
+		   for(int k = 0;k < lowerC.length();k++)
+		   	{
+			   if(isLetter(lowerC.charAt(k))== true)
+				   purgedL += lowerC.charAt(k);
+		   	}
+		   return purgedL;        // This statement is provided to allow initial compiling.
+	}
+   
+	
 
 	/*
 	 * Precondition: s is an arbitrary String. Postcondition: All non-letter
@@ -75,7 +103,13 @@ class Palindrome {
 	 * only completed for the 100 point version.
 	 */
 	public static boolean almostPal(String s) {
-		return true; // This statement is provided to allow initial compiling.
-	}
+		//returns the almost palindrome
+			if (isPal(s) == false)
+				return isPal(purge(s)); // This statement is provided to allow initial
+							// compiling.
+			else
+			return false;
+		
+		}
 
 }
